@@ -1,4 +1,5 @@
 import { Accordion, Container, Row, Col } from "react-bootstrap";
+import "./MovieResult.scss";
 
 const MovieResult = ({ movie }) => {
   return (

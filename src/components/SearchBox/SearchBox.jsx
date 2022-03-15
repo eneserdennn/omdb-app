@@ -8,7 +8,9 @@ const SearchBox = (props) => {
         <div className="app__searchbar">
           <Form ref={props.formRef}>
             <Form.Group className="mb-3" controlId="search">
-              <Form.Label>Movie Title</Form.Label>
+              <Form.Label className="app__searchbar--title">
+                Movie Title
+              </Form.Label>
               <FormControl
                 type="text"
                 placeholder="Search for a movie"
@@ -18,7 +20,7 @@ const SearchBox = (props) => {
             </Form.Group>
           </Form>
 
-          <div className="app__button">
+          <div className="app__searchbar--button">
             <Button
               className="button-clear"
               variant="light"
