@@ -1,5 +1,11 @@
+import MovieList from "./components/MovieList/MovieList";
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div>
+      <MovieList />
+    </div>
+  );
 };
 
 export default App;
