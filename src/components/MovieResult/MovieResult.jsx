@@ -35,7 +35,7 @@ const MovieResult = ({ movie }) => {
           <p>{movie.Error}</p>
         </div>
       ) : (
-        <Accordion className="app__movie--result">
+        <Accordion>
           <Accordion.Item eventKey="0">
             <Accordion.Header>{movie.Title}</Accordion.Header>
             <Accordion.Body>
