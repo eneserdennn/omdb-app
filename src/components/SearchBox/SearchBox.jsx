@@ -1,22 +1,33 @@
 import "./SearchBox.scss";
-import { Form, FormControl, Button, Container, Row } from "react-bootstrap";
+import {
+  Form,
+  FormControl,
+  Button,
+  Container,
+  Row,
+  InputGroup,
+} from "react-bootstrap";
+import { FaSearch } from "react-icons/fa";
 
 const SearchBox = (props) => {
   return (
     <Container>
       <Row>
         <div className="app__searchbar">
+          <span className="app__searchbar--title">Movie Title</span>
           <Form ref={props.formRef}>
-            <Form.Group className="mb-3" controlId="search">
-              <Form.Label className="app__searchbar--title">
-                Movie Title
-              </Form.Label>
-              <FormControl
-                type="text"
-                placeholder="Search for a movie"
-                value={props.searchValue}
-                onChange={(event) => props.setSearchValue(event.target.value)}
-              />
+            <Form.Group controlId="search">
+              <InputGroup className="mb-3">
+                <InputGroup.Text>
+                  <FaSearch />
+                </InputGroup.Text>
+                <FormControl
+                  type="text"
+                  placeholder="Search for a movie"
+                  value={props.searchValue}
+                  onChange={(event) => props.setSearchValue(event.target.value)}
+                />
+              </InputGroup>
             </Form.Group>
           </Form>
 

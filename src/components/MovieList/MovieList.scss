@@ -41,3 +41,20 @@
     top: 16px;
   }
 }
+
+.app__movie--result {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  border: 1px solid rgba(36, 36, 36, 0.25);
+  box-sizing: border-box;
+  border-radius: 8px;
+
+  .result-title {
+    font-weight: 600;
+  }
+}

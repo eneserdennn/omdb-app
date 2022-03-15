@@ -4,15 +4,12 @@
   flex-direction: column;
   padding: 16px;
   width: 521px;
-  height: 152px;
-  left: 0px;
-  top: 0px;
   border: 1px solid rgba(36, 36, 36, 0.25);
-  box-sizing: border-box;
   border-radius: 8px;
 
   .app__searchbar--title {
     font-weight: bold;
+    margin-bottom: 10px;
   }
 
   .app__searchbar--button {

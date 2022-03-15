@@ -13,6 +13,8 @@ const MovieList = () => {
   const [searchValue, setSearchValue] = useState("");
   // REF HOOK FOR CLEAR BUTTON
   const formRef = useRef();
+  // STATE HOOK FOR CHECKING IF SEARCH IS EMPTY
+  const [show, setShow] = useState(false);
 
   // API RESPONSE AND ERROR HANDLING
   const fetchMovie = async (searchValue) => {
@@ -22,6 +24,7 @@ const MovieList = () => {
 
     if (response.data.Response === "True") {
       setMovieName(response.data.Search);
+      setShow(true);
     } else {
       setMovieName([{ Error: "Movie not found!" }]);
     }
@@ -38,6 +41,7 @@ const MovieList = () => {
     setSearchValue("");
     setMovieName([]);
     formRef.current.reset();
+    setShow(false);
   };
 
   // COMPONENT DID MOUNT
@@ -45,8 +49,28 @@ const MovieList = () => {
     fetchMovie(searchValue);
   }, []);
 
+  // ERROR HANDLING FOR EMPTY SEARCH
+  const checkMovieFound =
+    show === true ? (
+      <div className="app__movie--result">
+        <span className="result-title">Results for "{searchValue}"</span>
+        <p>click on a movie title to learn more about it</p>
+
+        {movieName.map((movie) => (
+          <MovieResult
+            movie={movie}
+            key={movie.imdbID}
+            searchValue={searchValue}
+          />
+        ))}
+      </div>
+    ) : (
+      <div className="app__movie--result">
+        <p>Please enter movie name.</p>
+      </div>
+    );
+
   return (
-    // RENDERING SEARCH BOX
     <div className="app__form">
       <h1>OMDb API</h1>
       <p>The Open Movie Database 🍿</p>
@@ -57,19 +81,7 @@ const MovieList = () => {
         formRef={formRef}
       />
       <br />
-      <div className="app__form--result">
-        <span className="result-title">Results for "{searchValue}"</span>
-        <p>click on a movie title to learn more about it</p>
-
-        {/* RENDERING MOVIE RESULT */}
-        {movieName.map((movie) => (
-          <MovieResult
-            movie={movie}
-            key={movie.imdbID}
-            searchValue={searchValue}
-          />
-        ))}
-      </div>
+      {checkMovieFound}
     </div>
   );
 };
