@@ -1,0 +1,43 @@
+.app__movie--result {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  border: 1px solid rgba(36, 36, 36, 0.25);
+  box-sizing: border-box;
+  border-radius: 8px;
+
+  .result-title {
+    font-weight: 600;
+  }
+}
+
+.app__form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: absolute;
+  width: 521px;
+  height: 336px;
+  left: calc(50% - 521px / 2 - 0.5px);
+  top: calc(50% - 336px / 2);
+
+  @media (max-width: 768px) {
+    width: calc(100% - 32px);
+    height: calc(100% - 32px);
+    left: 16px;
+    top: 16px;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: calc(100% - 32px);
+    height: calc(100% - 32px);
+    left: 16px;
+    top: 16px;
+  }
+}
