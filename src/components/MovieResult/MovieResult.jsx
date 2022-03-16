@@ -2,6 +2,7 @@ import axios from "axios";
 import { Accordion, Container, Row, Col, Button, Modal } from "react-bootstrap";
 import "./MovieResult.scss";
 import { useState, useEffect } from "react";
+const personalToken = process.env.REACT_APP_PERSONAL_TOKEN;
 
 const MovieResult = ({ movie }) => {
   // STATE FOR MOVIE DETAILS
@@ -16,7 +17,7 @@ const MovieResult = ({ movie }) => {
   // GET MOVIE DETAILS
   const fetchMovieDetail = async (movie) => {
     const response = await axios.get(
-      `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=6dd08782`
+      `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=${personalToken}`
     );
 
     setMovieInfo(response.data);

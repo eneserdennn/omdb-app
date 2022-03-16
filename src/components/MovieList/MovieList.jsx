@@ -6,6 +6,8 @@ import { useState, useEffect, useRef } from "react";
 import SearchBox from "../SearchBox/SearchBox";
 import MovieResult from "../MovieResult/MovieResult";
 
+const personalToken = process.env.REACT_APP_PERSONAL_TOKEN;
+
 const MovieList = () => {
   // STATE HOOK FOR MOVIE LIST
   const [movieName, setMovieName] = useState([]);
@@ -19,7 +21,7 @@ const MovieList = () => {
   // API RESPONSE AND ERROR HANDLING
   const fetchMovie = async (searchValue) => {
     const response = await axios.get(
-      `http://www.omdbapi.com/?s=${searchValue}&apikey=6dd08782&type=movie`
+      `https://www.omdbapi.com/?s=${searchValue}&apikey=${personalToken}&type=movie`
     );
 
     if (response.data.Response === "True") {
